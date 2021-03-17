@@ -1,0 +1,52 @@
+{
+	"name": "unit-test-generator",
+	"displayName": "Unit Test Generator",
+	"description": "Create unit test file",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.53.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:unit-test-generator.generateUnitTest"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "unit-test-generator.generateUnitTest",
+				"title": "Generate Unit Test File"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"command": "unit-test-generator.generateUnitTest",
+					"group": "YourGroup@1",
+					"when": "editorTextFocus && resourceLangId == javascript"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"lint": "eslint .",
+		"pretest": "npm run lint",
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.53.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.4",
+		"@types/node": "^12.11.7",
+		"eslint": "^7.19.0",
+		"glob": "^7.1.6",
+		"mocha": "^8.2.1",
+		"typescript": "^4.1.3",
+		"vscode-test": "^1.5.0"
+	},
+	"dependencies": {
+		"lodash": "^4.17.21"
+	}
+}
